@@ -1,8 +1,9 @@
 
 var width = window.innerWidth;
 var height = window.innerHeight;
+
 var projection = d3.geoMercator()
-    .scale(250)
+    .scale(200)
     .translate([width / 2.9, height / 2 + 50]);
 
 var path = d3.geoPath().projection(projection);
@@ -33,7 +34,7 @@ var colorScale = d3.scaleOrdinal()
 
 var legend = svg.append("g")
     .attr("class", "legend")
-    .attr("transform", "translate(20,575)");
+    .attr("transform", "translate(20,370)");
 
 var legendItems = legend.selectAll(".legend-item")
     .data(colorScale.domain())
@@ -43,8 +44,8 @@ var legendItems = legend.selectAll(".legend-item")
 
 legendItems.append("rect")
     .attr("x", 0)
-    .attr("width", 20)
-    .attr("height", 25)
+    .attr("width", 15)
+    .attr("height", 20)
     .style("fill", colorScale);
 
 legendItems.append("text")
@@ -155,7 +156,7 @@ var svgBar = d3.select("#bar").append("svg")
         .attr("x", (barWidth/2)) 
         .attr("y", -5) 
         .attr("text-anchor", "middle")
-        .style("font-size", "20px")
+        .style("font-size", "15px")
         .text("Top 3 Brands Market Share in " + countryData.country);
 
     svgBar.selectAll(".bar")
@@ -219,7 +220,7 @@ d3.json("data/phones2.json").then(function (data) {
         .attr("x", (barWidth/2)) 
         .attr("y", -10) 
         .attr("text-anchor", "middle")
-        .style("font-size", "20px")
+        .style("font-size", "15px")
         .text("Top 10 Countries by Smartphone Usage");
 
     svgBar2.selectAll("myRect")
@@ -309,7 +310,7 @@ function showTopBrandsBarChart(phoneData) {
         .attr("x", (barWidth/2)) 
         .attr("y", -5) 
         .attr("text-anchor", "middle")
-        .style("font-size", "20px")
+        .style("font-size", "15px")
         .text("Top 3 Brands Market Share");
 
 
